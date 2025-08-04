@@ -30,7 +30,9 @@ metadata:
 spec:
   selector:
     app: frontend
+  type: NodePort
   ports:
-    - port: 80
-      targetPort: 80
-  type: ClusterIP
+    - protocol: TCP
+      port: 80          # Service port
+      targetPort: 80    # Container port
+      nodePort: 30080   # External port (must be 30000–32767)
